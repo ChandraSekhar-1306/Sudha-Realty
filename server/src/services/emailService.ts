@@ -53,10 +53,7 @@ class EmailService {
 
   // Appointment approval email with Zoom link
 async sendAppointmentApproval(
-  email: string,
-  name: string,
-  scheduledTime?: Date
-): Promise<void> {
+email: string, name: string, meetingLink: string, scheduledTime?: Date): Promise<void> {
   const subject = 'Consultation Approved - Meeting Details Inside';
   const timeString = scheduledTime 
     ? new Date(scheduledTime).toLocaleString('en-IN', {
@@ -70,7 +67,7 @@ async sendAppointmentApproval(
       })
     : 'To be scheduled';
 
-  const meetingLink = 'https://meet.google.com/pef-ipuh-baa';
+  
   const meetingCode = 'pef-ipuh-baa';
 
   const html = `

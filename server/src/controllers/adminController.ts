@@ -226,7 +226,7 @@ export class AdminController {
           // meetingLink = zoomMeeting.join_url;
           // meetingId = zoomMeeting.id.toString();
           
-          meetingLink="https://dummymeetinglink.com/meeting123"; // Placeholder for actual Zoom link
+          meetingLink='https://meet.google.com/pef-ipuh-baa'; // Placeholder for actual Zoom link
 
           // Send approval email with meeting link
           await emailService.sendAppointmentApproval(

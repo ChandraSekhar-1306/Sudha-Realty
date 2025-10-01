@@ -35,7 +35,7 @@ export class InquiryController {
 
       if (!user) {
         user = await prisma.user.create({
-          data: { name, email, phone }
+          data: { name, email, phone, password: 'defaultPassword123' }
         });
       }
 
