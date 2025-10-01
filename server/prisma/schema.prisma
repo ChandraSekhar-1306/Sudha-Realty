@@ -1,0 +1,153 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointments Appointment[]
+  favorites    Favorite[]
+  inquiries    Inquiry[]
+
+  @@map("users")
+}
+
+model Admin {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  name      String
+  password  String
+  role      AdminRole @default(ADMIN)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("admins")
+}
+
+model Appointment {
+  id          String            @id @default(uuid())
+  userId      String
+  name        String
+  email       String
+  phone       String
+  message     String?
+  status      AppointmentStatus @default(PENDING)
+  meetingLink String?
+  meetingId   String?
+  scheduledAt DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("appointments")
+}
+
+model Property {
+  id          String           @id @default(uuid())
+  title       String
+  description String
+  price       String
+  location    String
+  area        String?
+  bedrooms    String?
+  bathrooms   String?
+  category    PropertyCategory
+  type        PropertyType
+  status      PropertyStatus   @default(AVAILABLE)
+  images      String[]
+  features    String[]
+  coordinates Json? // {lat: number, lng: number}
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  favorites Favorite[]
+  inquiries Inquiry[]
+
+  @@map("properties")
+}
+
+model Favorite {
+  id         String   @id @default(uuid())
+  userId     String
+  propertyId String
+  createdAt  DateTime @default(now())
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+  @@map("favorites")
+}
+
+model Inquiry {
+  id         String        @id @default(uuid())
+  userId     String
+  propertyId String
+  name       String
+  email      String
+  phone      String
+  message    String
+  status     InquiryStatus @default(PENDING)
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@map("inquiries")
+}
+
+enum AdminRole {
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum AppointmentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  COMPLETED
+  CANCELLED
+}
+
+enum PropertyCategory {
+  FRESH_SALES
+  RESALE
+}
+
+enum PropertyType {
+  OPEN_PLOTS
+  APARTMENTS
+  VILLAS
+  FARMLAND
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  SOLD
+  RESERVED
+}
+
+enum InquiryStatus {
+  PENDING
+  RESPONDED
+  CLOSED
+}
