@@ -193,7 +193,7 @@ export default function AddPropertyPage() {
     }
   };
 
-  if (!admin) {
+  if (!admin)  {
    
     return null;
   }
