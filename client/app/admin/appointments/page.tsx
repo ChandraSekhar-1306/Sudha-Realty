@@ -123,11 +123,14 @@ export default function AdminAppointmentsPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("admin");
-    router.push("/");
-  };
+ const handleLogout = () => {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('admin');
+    router.push('/'); // redirect after logout
+  }
+};
+
 
   if (!admin) {
     return null;

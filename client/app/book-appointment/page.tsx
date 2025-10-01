@@ -471,10 +471,12 @@ export default function BookAppointmentPage() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    router.push("/");
-  };
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/'); // redirect after logout
+  }
+};
 
   if (authLoading || !user) {
     return (

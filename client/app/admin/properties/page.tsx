@@ -110,10 +110,13 @@ export default function AdminPropertiesPage() {
     }
   };
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("admin");
-  router.push("/");
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('admin');
+    router.push('/'); // redirect after logout
+  }
 };
+
 
   
 

@@ -91,11 +91,12 @@ export default function FavoritesPage() {
   };
 
   const handleLogout = () => {
+  if (typeof window !== 'undefined') {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    router.push('/');
-  };
-
+    router.push('/'); // redirect after logout
+  }
+};
   if (!user) {
     return null;
   }

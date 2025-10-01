@@ -401,11 +401,13 @@ export default function MyInquiriesPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    router.push("/");
-  };
+ const handleLogout = () => {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/'); // redirect after logout
+  }
+};
 
   const getStatusColor = (status: string) => {
     switch (status) {

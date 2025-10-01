@@ -81,11 +81,14 @@ export default function DashboardPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    router.push("/");
-  };
+ const handleLogout = () => {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/'); // redirect after logout
+  }
+};
+
 
   const getStatusIcon = (status: string) => {
     switch (status) {

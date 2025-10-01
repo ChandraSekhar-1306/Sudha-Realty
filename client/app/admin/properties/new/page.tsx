@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -111,11 +111,21 @@ export default function AddPropertyPage() {
       features: prev.features.filter((_, i) => i !== index)
     }));
   };
+
+   useEffect(() => {
+    if (!admin && typeof window !== 'undefined') {
+      router.push('/auth');
+    }
+  }, [admin, router]);
+
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("admin");
-  router.push("/");
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('admin');
+    router.push('/'); // redirect after logout
+  }
 };
+
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -184,7 +194,7 @@ export default function AddPropertyPage() {
   };
 
   if (!admin) {
-    router.push('/auth');
+   
     return null;
   }
 

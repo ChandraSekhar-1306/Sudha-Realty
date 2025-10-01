@@ -86,10 +86,13 @@ export default function AdminInquiriesPage() {
   };
 
   const handleLogout = () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("admin");
-  router.push("/");
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('admin');
+    router.push('/'); // redirect after logout
+  }
 };
+
 
   const getStatusColor = (status: string) => {
     switch (status) {

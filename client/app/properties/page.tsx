@@ -651,10 +651,12 @@ export default function PropertiesPage() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    router.push("/");
-  };
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    router.push('/'); // redirect after logout
+  }
+};
 
   const handleFavorite = (propertyId: string) => {
     if (!user) {

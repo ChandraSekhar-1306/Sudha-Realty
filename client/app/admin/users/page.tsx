@@ -56,10 +56,12 @@ export default function AdminUsersPage() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("admin");
-    router.push("/");
-  };
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    localStorage.removeItem('admin');
+    router.push('/'); // redirect after logout
+  }
+};
 
   // Filter users based on search term
   const filteredUsers = users.filter(user =>
