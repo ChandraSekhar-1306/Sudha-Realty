@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { RootState } from '@/store/store';
 import { searchProperties, toggleFavorite } from '@/store/propertySlice';
 
-export default function SearchPage() {
+function SearchPageContent() {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get('q') || '';
@@ -224,5 +224,65 @@ export default function SearchPage() {
         </>
       )}
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function SearchPageLoading() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="animate-pulse">
+        {/* Header skeleton */}
+        <div className="mb-6">
+          <div className="h-8 w-64 bg-gray-200 rounded mb-2"></div>
+          <div className="h-4 w-96 bg-gray-200 rounded"></div>
+        </div>
+
+        {/* Filters skeleton */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <div className="h-6 w-32 bg-gray-200 rounded mb-4"></div>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div>
+              <div className="h-4 w-20 bg-gray-200 rounded mb-2"></div>
+              <div className="h-10 w-full bg-gray-200 rounded"></div>
+            </div>
+            <div>
+              <div className="h-4 w-20 bg-gray-200 rounded mb-2"></div>
+              <div className="h-10 w-full bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Results grid skeleton */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="h-48 bg-gray-200"></div>
+              <div className="p-4 space-y-3">
+                <div className="h-6 bg-gray-200 rounded"></div>
+                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                <div className="h-6 bg-gray-200 rounded w-1/2"></div>
+                <div className="flex space-x-2">
+                  <div className="h-6 w-16 bg-gray-200 rounded"></div>
+                  <div className="h-6 w-16 bg-gray-200 rounded"></div>
+                </div>
+                <div className="flex space-x-2">
+                  <div className="h-10 flex-1 bg-gray-200 rounded"></div>
+                  <div className="h-10 flex-1 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<SearchPageLoading />}>
+      <SearchPageContent />
+    </Suspense>
   );
 }
