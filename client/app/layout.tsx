@@ -51,6 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <head>
+        <link rel="icon" href="/logo.ico" />
+      </head>
       <body className={inter.className}>
         <ReduxProvider>
           <AppContent>{children}</AppContent>

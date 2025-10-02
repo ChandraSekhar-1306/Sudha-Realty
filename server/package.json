@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "prisma generate && tsc --noEmit",
-    "build:no-check": "prisma generate && tsc --noEmit --skipLibCheck true",
-    "seedadmin": "ts-node-dev --respawn --transpile-only src/models/index.ts",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
-  },
+  "scripts": 
+  { 
+  "test": "echo \"Error: no test specified\" && exit 1", 
+  "start": "node dist/index.js", 
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts", 
+  "build": "prisma generate && ts-node --transpile-only src/index.ts" , 
+  "seedadmin": "ts-node-dev --respawn --transpile-only src/models/index.ts", 
+  "prisma:generate": "prisma generate", 
+  "prisma:migrate": "prisma migrate dev", 
+  "prisma:studio": "prisma studio" 
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
