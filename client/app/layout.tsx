@@ -7,6 +7,7 @@ import{useDispatch} from "react-redux";
 import ReduxProvider from "@/components/ReduxProvider";
 import { useEffect } from "react";
 import { loadFromStorage } from "@/store/authSlice";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const geistSans = Geist({
@@ -56,7 +57,10 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ReduxProvider>
-          <AppContent>{children}</AppContent>
+          <AppContent>
+            {children}
+               <Analytics />
+            </AppContent>
         </ReduxProvider>
       </body>
     </html>
