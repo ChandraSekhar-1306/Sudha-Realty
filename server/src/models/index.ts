@@ -62,5 +62,31 @@ export class AppointmentModel {
   }
 }
 
+export class AdminModel {
+  static async createDefaultAdmin() {
+    try {
+      const existingAdmin = await prisma.admin.findFirst();
+      
+      if (!existingAdmin) {
+        const hashedPassword = await bcrypt.hash('Sekhar@130620039656', 10);
+        
+        await prisma.admin.create({
+          data: {
+            name: 'Jayendra Tangirala',
+            email: 'admin@sudharealty.in',
+            password: hashedPassword,
+            role: 'SUPER_ADMIN',
+          }
+        });
+        
+        console.log('✅ Default admin created: admin@sudharealty.in');
+      }
+    } catch (error) {
+      console.error('Error creating default admin:', error);
+    }
+  }
+}
+AdminModel.createDefaultAdmin();
+
 
 

@@ -120,9 +120,9 @@ const Hero = () => {
           
         
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-slate-900 mb-6 leading-tight tracking-tight">
             Find Your
-            <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent font-bold mt-2">
+            <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent font-semibold mt-2">
               Dream Property
             </span>
           </h1>
@@ -135,25 +135,17 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Link href={"/book-appointment"}>
+            <Link href={"/properties"}>
             <button
              
               className="min-w-[260px] px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold text-base tracking-wide rounded-xl shadow-2xl hover:shadow-indigo-500/40 transition-all duration-300 flex items-center justify-center gap-3 group"
-            >
-              <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              Book Consultation
-            </button>
-            </Link>
-
-              <Link href={"/properties"}>
-            <button
-             
-              className="min-w-[260px] px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 font-semibold text-base tracking-wide rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group border-2 border-slate-200 hover:border-indigo-300"
             >
               <Search className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Explore Properties
             </button>
             </Link>
+
+             
           </div>
 
    

@@ -46,8 +46,9 @@ const limitNum = Number.isInteger(parseInt(limit)) && parseInt(limit) > 0
       
       if (minPrice || maxPrice) {
         where.price = {};
-        if (minPrice) where.price.gte = parseFloat(minPrice);
-        if (maxPrice) where.price.lte = parseFloat(maxPrice);
+        if (minPrice) where.price.gte = parseFloat(minPrice);  // Convert to number
+        if (maxPrice) where.price.lte = parseFloat(maxPrice);  // Convert to number
+
       }
 
       // Get properties

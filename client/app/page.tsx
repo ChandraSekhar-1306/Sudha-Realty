@@ -8,8 +8,8 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import Footer from "@/components/Footer";
 
 import React from 'react'
-import HowToUseSection from "@/components/HowToUse";
 import Navbar from "@/components/Navbar";
+import ConsultationValue from "@/components/ConsultationValue";
 
 export default function Home() {
   return (
@@ -17,8 +17,9 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <ConsultationValue />
       <WhyChooseUsSection />
-      <HowToUseSection/>    
+     
       <Footer />
     </div>
   )
