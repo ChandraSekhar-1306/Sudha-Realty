@@ -22,8 +22,21 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className=" top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30 backdrop-blur-md ">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="relative top-0 left-0 right-0 z-50 overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      {/* Animated Background Gradient - Same as Hero */}
+      <div className="absolute inset-0 ">
+        {/* Animated Orbs - Same as Hero */}
+        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-indigo-300/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-56 sm:w-96 h-56 sm:h-96 bg-purple-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      {/* Decorative Grid Pattern - Same as Hero */}
+      <div className="absolute inset-0 opacity-[0.01] sm:opacity-[0.02]" style={{
+        backgroundImage: `linear-gradient(to right, #6366f1 1px, transparent 1px), linear-gradient(to bottom, #6366f1 1px, transparent 1px)`,
+        backgroundSize: '30px 30px'
+      }}></div>
+
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div
@@ -31,13 +44,13 @@ const Navbar = () => {
             onClick={() => scrollToSection("hero")}
           >
             <Link href={"/"}>
-            <Image
-              src="/logofinal1.png"
-              alt="Logo"
-              width={200}
-              height={180}
-              className="object-contain"
-            />
+              <Image
+                src="/logofinal1.png"
+                alt="Logo"
+                width={200}
+                height={180}
+                className="object-contain"
+              />
             </Link>
           </div>
 
@@ -69,12 +82,12 @@ const Navbar = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Link href="/auth">
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg"
-            >
-              Get Started
-            </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+              >
+                Get Started
+              </button>
             </Link>
           </div>
 
@@ -114,7 +127,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => scrollToSection("contact")}
-                className="w-full mt-2 px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors shadow-md"
+                className="w-full mt-2 px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
               >
                 Get Started
               </button>

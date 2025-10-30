@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc list-inside text-gray-700 font-light space-y-2">
               <li>Name, email address, and phone number</li>
               <li>Details shared during property consultations or inquiries</li>
-              <li>Payment details for consultation fees (processed securely via trusted payment partners)</li>
+              <li>Payment details for consultation fees.</li>
               <li>Technical information such as your IP address, browser type, and device information</li>
             </ul>
           </div>
