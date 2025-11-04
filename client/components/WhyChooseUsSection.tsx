@@ -110,6 +110,7 @@
 
 "use client"
 import { Shield, Users, Award, TrendingUp } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -196,11 +197,11 @@ const WhyChooseUsSection = () => {
                   <TrendingUp className="w-5 h-5" />
                 </button>
               </a>
-              <a href="/book-appointment">
+              <Link href="/book-appointment">
                 <button className="w-full px-6 py-3.5 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
                   Book Consultation
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
