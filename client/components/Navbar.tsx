@@ -16,9 +16,9 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { label: "About Us", href: "about", type: "section" },
-    { label: "How It Works", href: "how-to-use", type: "section" },
+    { label: "Curated Listings", href: "/properties", type: "page" },
     { label: "Community Platform", href: "/listing", type: "page" },
+    { label: "Property Inspection", href: "/property-monitoring", type: "page" },
   ];
 
   return (

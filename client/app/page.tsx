@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import React from 'react'
 import Navbar from "@/components/Navbar";
 import ConsultationValue from "@/components/ConsultationValue";
+import ServicesShowcase from "@/components/ServicesShowCase";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ConsultationValue />
+      <ServicesShowcase />
       <WhyChooseUsSection />
      
       <Footer />

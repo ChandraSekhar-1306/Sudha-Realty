@@ -133,7 +133,7 @@ const Footer = () => {
   const navigationLinks = [
     { name: "About", href: "#about" },
     { name: "Properties", href: "/properties" },
-    { name: "How It Works", href: "#how-to-use" },
+    { name: "Community Platofrm", href: "/listing" },
   ];
 
   return (

@@ -26,7 +26,6 @@ export default function ConsultationValue() {
 
   const valuePoints = [
     "20+ years of proven expertise in Hyderabad real estate",
-    "Access to exclusive off-market properties",
     "End-to-end support from search to final handover",
     "Strong negotiation skills saving you lakhs",
     "Verified properties with complete legal clarity",
@@ -39,14 +38,13 @@ export default function ConsultationValue() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
-            Why Invest in a{" "}
+           Benefits Of A{" "}
             <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent font-semibold">
-              Professional Consultation?
+              Professional Consultation
             </span>
           </h2>
           <p className="text-gray-600 text-lg max-w-3xl mx-auto font-light leading-relaxed">
-            Your ₹2,999 consultation fee is an investment in making the right property decision—potentially saving you lakhs while securing your dream home or investment.
-          </p>
+              Your consultation is an investment in making the right property decision—potentially saving you lakhs while securing your dream home or investment.          </p>
         </div>
 
         {/* Main Grid */}
@@ -122,7 +120,7 @@ export default function ConsultationValue() {
                 Schedule Your Consultation
               </h3>
               <p className="text-gray-600 font-light leading-relaxed mb-6">
-                Join hundreds of satisfied clients who made informed property decisions with professional guidance. Your consultation fee is fully adjustable against final transaction.
+                Join hundreds of satisfied clients who made informed property decisions with professional guidance. Take the first step towards your dream property today!
               </p>
              
             </div>
@@ -132,9 +130,7 @@ export default function ConsultationValue() {
                 <IndianRupee className="w-6 h-6 text-gray-900" />
                 <span className="text-4xl font-bold text-gray-900">2,999</span>
               </div>
-              <p className="text-gray-600 text-sm mb-6 font-light">
-                One-time consultation fee • Adjustable on transaction • 100% transparent pricing
-              </p>
+              
               <a href="/book-appointment">
                 <button className="w-full px-6 py-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
                   Book Your Consultation

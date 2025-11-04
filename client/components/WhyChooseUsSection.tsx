@@ -109,9 +109,6 @@
 
 
 "use client"
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 import { Shield, Users, Award, TrendingUp } from "lucide-react";
 
 const features = [
@@ -138,80 +135,75 @@ const features = [
 ];
 
 const WhyChooseUsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-background to-secondary/20">
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50/30 to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-semibold text-foreground mb-6 tracking-tight leading-tight">
+        {/* Header */}
+        <div className="text-center mb-16">
+          
+          
+          <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
             Your Success Is{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent font-semibold">Our Priority</span>
+            <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent font-semibold">
+              Our Priority
+            </span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto font-light tracking-wide">
+          <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto font-light">
             More than just transactions—we build lasting partnerships through integrity, local expertise, and genuine commitment to your property goals.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <motion.div
+              <div
                 key={index}
-                variants={itemVariants}
-                className="group"
+                className="group bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg hover:border-indigo-200 transition-all duration-300"
               >
-                <div className="relative p-8 rounded-2xl shadow-elegant hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300 h-full bg-white border border-gray-200 hover:border-indigo-300 overflow-hidden group">
-                  {/* Decorative gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/0 via-purple-50/0 to-indigo-50/0 group-hover:from-indigo-50/50 group-hover:via-purple-50/30 group-hover:to-indigo-50/50 transition-all duration-500" />
-                  
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <Icon className="w-7 h-7 text-indigo-600" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3 tracking-wide">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed font-light">
-                      {feature.description}
-                    </p>
-                  </div>
+                <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition-colors">
+                  <Icon className="w-6 h-6 text-indigo-600" />
                 </div>
-              </motion.div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 tracking-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
+                  {feature.description}
+                </p>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
+
+        {/* Bottom CTA Card */}
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 lg:p-10">
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            <div className="lg:col-span-2">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
+                Ready to Make Your Property Decision?
+              </h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Join hundreds of satisfied clients who found their dream properties with professional guidance. 
+                Let's discuss your requirements and find the perfect match for your investment goals.
+              </p>
+            </div>
+            
+            <div className="flex flex-col gap-3">
+              <a href="/properties">
+                <button className="w-full px-6 py-3.5 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+                  Explore Properties
+                  <TrendingUp className="w-5 h-5" />
+                </button>
+              </a>
+              <a href="/book-appointment">
+                <button className="w-full px-6 py-3.5 bg-white text-gray-700 font-medium rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors">
+                  Book Consultation
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
