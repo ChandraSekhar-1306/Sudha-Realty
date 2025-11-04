@@ -26,7 +26,6 @@ export default function ConsultationValue() {
 
   const valuePoints = [
     "20+ years of proven expertise in Hyderabad real estate",
-    "End-to-end support from search to final handover",
     "Strong negotiation skills saving you lakhs",
     "Verified properties with complete legal clarity",
    
@@ -106,6 +105,24 @@ export default function ConsultationValue() {
                 </div>
                 <p className="text-gray-700 text-sm font-light leading-relaxed">
                   Skip months of property hunting confusion. Get expert guidance that fast-tracks your search with pre-verified options matching your exact criteria.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 rounded-xl p-6 border border-amber-200/50 shadow-sm">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                <Lightbulb className="w-5 h-5 text-amber-600" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-semibold text-gray-900 mb-2 tracking-wide">
+                  Independent Consultation
+                </h4>
+                <p className="text-gray-700 text-sm font-light leading-relaxed">
+                  This consultation is designed for clarity and guidance—there's <span className="font-medium text-gray-900">no obligation to buy property through Sudha Realty</span>. Whether you're feeling confused about the market or exploring your options, our expert advice empowers you to make informed decisions and purchase from anywhere that suits you best.
                 </p>
               </div>
             </div>

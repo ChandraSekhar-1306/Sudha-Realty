@@ -118,7 +118,7 @@ const features = [
   {
     icon: Shield,
     title: "Legal Peace of Mind",
-    description: "Every property comes with thorough documentation review and clear title verification, protecting your investment from future disputes."
+    description: "Every property comes with thorough documentation review and clear title verification."
   },
   {
     icon: Users,
