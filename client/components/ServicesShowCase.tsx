@@ -34,7 +34,7 @@ export default function ServicesShowcase() {
       color: "from-purple-600 to-pink-600",
       bgColor: "from-purple-50 to-pink-50",
       badgeColor: "bg-purple-100 text-purple-900",
-      link: "/listings"
+      link: "/listing"
     }
   ];
 
@@ -43,8 +43,8 @@ export default function ServicesShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          
-          
+
+
           <h2 className="text-4xl lg:text-5xl font-semibold text-gray-900 mb-6 tracking-tight leading-tight">
             Beyond Traditional{" "}
             <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-500 bg-clip-text text-transparent font-semibold">
@@ -61,7 +61,7 @@ export default function ServicesShowcase() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all duration-300"
               >
@@ -75,7 +75,7 @@ export default function ServicesShowcase() {
                       <span className="text-xs font-medium">{service.badge}</span>
                     </div>
                   </div>
-                  
+
                   <h3 className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">
                     {service.title}
                   </h3>
