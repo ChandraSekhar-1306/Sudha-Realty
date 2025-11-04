@@ -492,12 +492,7 @@ const EmptyState = ({ clearFilters }: EmptyStateProps) => (
       </p>
       
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <Button variant="default" className='bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg' asChild>
-          <Link href="/book-appointment">
-            <Phone className="mr-2 h-4 w-4" />
-            Book Consultation
-          </Link>
-        </Button>
+       
         <Button variant="outline" className='border-gray-300 hover:bg-white text-gray-700 font-medium' onClick={clearFilters}>
           <RotateCcw className="mr-2 h-4 w-4" />
           Reset Filters
